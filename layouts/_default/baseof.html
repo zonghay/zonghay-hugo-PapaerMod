@@ -22,6 +22,18 @@
         {{- block "main" . }}{{ end }}
     </main>
     {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
+
+    {{- if (or site.Params.enableMermaid (eq site.Params.enableMermaid true)) -}}
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+        window.addEventListener('load', function() {
+            mermaid.init({
+                theme: '{{ if eq site.Params.defaultTheme `dark` }}dark{{ else }}default{{ end }}',
+                securityLevel: 'loose'
+            }, '.language-mermaid');
+        });
+    </script>
+    {{- end -}}
 </body>
 
 </html>
