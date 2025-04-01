@@ -28,8 +28,18 @@
     <script>
         window.addEventListener('load', function() {
             mermaid.init({
-                theme: '{{ if eq site.Params.defaultTheme `dark` }}dark{{ else }}default{{ end }}',
-                securityLevel: 'loose'
+                startOnLoad: true,
+                theme: 'neutral',
+                securityLevel: 'loose',
+                themeVariables: {
+                    primaryColor: '#a6d8ff',
+                    primaryTextColor: '#000',
+                    primaryBorderColor: '#7C0200',
+                    lineColor: '#fff',
+                    secondaryColor: '#006100',
+                    tertiaryColor: '#fff',
+                    background: '#f4f4f4',
+                    fontSize: '16px'
             }, '.language-mermaid');
         });
     </script>
